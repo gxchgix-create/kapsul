@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aşk Kapsülü 🤍</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #fafafa;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .cam-kutu {
+            max-width: 420px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.02);
+            text-align: center;
+        }
+        .baslik { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; color: #0f172a; }
+        .alt-metin { font-size: 0.9rem; color: #64748b; margin-bottom: 25px; }
+        .input-alan {
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(15, 23, 42, 0.1);
+            background: rgba(255, 255, 255, 0.5);
+            font-size: 1rem;
+            text-align: center;
+            outline: none;
+            margin-bottom: 15px;
+        }
+        .buton {
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            border: none;
+            background: #0f172a;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .buton:hover { background: #ff85a2; }
+        .oda-kart {
+            background: white;
+            border: 1px solid rgba(15, 23, 42, 0.04);
+            padding: 15px;
+            border-radius: 16px;
+            margin-top: 15px;
+            text-align: left;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Giriş Paneli -->
+    <div id="giris-ekrani" class="cam-kutu">
+        <div style="font-size: 3rem; margin-bottom: 15px;">🔒</div>
+        <h1 class="baslik">Bizim Kapsülümüz</h1>
+        <p class="alt-metin">Sadece ikimize özel dijital odaya giriş yap sevgilim... ✨</p>
+        <input type="password" id="sifre" class="input-alan" placeholder="Giriş Şifresi">
+        <button class="buton" onclick="gisiKontrol()">Giriş Yap</button>
+    </div>
+
+    <!-- Ana Kapsül Odaları -->
+    <div id="ana-kapsul" class="cam-kutu" style="display: none;">
+        <div style="font-size: 3rem; margin-bottom: 15px;">🤍</div>
+        <h1 class="baslik">Aşk Kapsülüne Hoş Geldin</h1>
+        <p class="alt-metin">Mesafe dediğin ne ki? Kalbimiz burada birlikte atıyor. İstediğin anıya dokun şefim:</p>
+        
+        <button class="buton" style="margin-bottom: 10px;" onclick="odaAc('hatay')">🧑‍🍳 Hatay Mutfağı Sürprizi</button>
+        <button class="buton" style="margin-bottom: 10px; background:#e2e8f0; color:#0f172a;" onclick="odaAc('bumblebee')">🐝 Bumblebee Odası</button>
+
+        <!-- Hatay Mutfağı Bölümü -->
+        <div id="hatay" class="oda-kart">
+            <h3 style="margin-bottom: 8px;">🍽️ Şefin Menüsü</h3>
+            <button class="buton" style="font-size:0.85rem; padding:8px; margin-bottom:5px;" onclick="alert('Peyniri uzuyor, şerbeti tam kıvamında... Mesafe bu kokuyu engellemeye yetmez, sevginle pişti! 🥞')">🔥 Künefe Hazırla</button>
+            <button class="buton" style="font-size:0.85rem; padding:8px; background:#f59e0b;" onclick="alert('Antakya usulü çıtır çıtır, üzerine bol tahin ve cevizle sevgiline gitmek üzere yola çıktı! 🎃')">🎃 Çıtır Kabak Tatlısı</button>
+        </div>
+
+        <!-- Bumblebee Bölümü -->
+        <div id="bumblebee" class="oda-kart">
+            <h3 style="margin-bottom: 5px;">🐝 Tatlı Arı</h3>
+            <p style="font-size: 0.85rem; color:#64748b;">Sen benim hayatımın en tatlı bal arısısın. Dünyanın öbür ucunda olsan bile polenlerin hep kalbimde... 💛</p>
+        </div>
+    </div>
+
+    <script>
+        function gisiKontrol() {
+            var sifreInput = document.getElementById('sifre').value;
+            if(sifreInput === '1234') {
+                document.getElementById('giris-ekrani').style.display = 'none';
+                document.getElementById('ana-kapsul').style.display = 'block';
+            } else {
+                alert('Hatalı şifre sevgilim, tekrar dene! 💕');
+            }
+        }
+
+        function odaAc(id) {
+            document.getElementById('hatay').style.display = 'none';
+            document.getElementById('bumblebee').style.display = 'none';
+            document.getElementById(id).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
